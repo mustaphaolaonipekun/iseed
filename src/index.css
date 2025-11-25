@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* ISEED Conference Brand Colors */
+    --royal-blue: 214 100% 30%;
+    --emerald-green: 162 100% 33%;
+    --bright-aqua: 182 84% 51%;
+    --deep-navy: 214 100% 11%;
+    --soft-white: 0 0% 100%;
+    --neutral-gray: 214 32% 95%;
+    
+    /* Theme mappings */
+    --background: 0 0% 100%;
+    --foreground: 214 100% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 214 100% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 214 100% 11%;
+
+    --primary: 214 100% 30%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 162 100% 33%;
+    --secondary-foreground: 0 0% 100%;
+
+    --accent: 182 84% 51%;
+    --accent-foreground: 214 100% 11%;
+
+    --muted: 214 32% 95%;
+    --muted-foreground: 214 20% 40%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 214 100% 30%;
+
+    --radius: 1rem;
+    
+    /* Glassmorphism */
+    --glass-bg: 0 0% 100% / 0.25;
+    --glass-border: 0 0% 100% / 0.18;
+  }
+
+  .dark {
+    --background: 214 100% 11%;
+    --foreground: 0 0% 100%;
+
+    --card: 214 100% 11%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 214 100% 11%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 214 100% 30%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 162 100% 33%;
+    --secondary-foreground: 0 0% 100%;
+
+    --accent: 182 84% 51%;
+    --accent-foreground: 214 100% 11%;
+
+    --muted: 214 20% 20%;
+    --muted-foreground: 214 32% 60%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 20% 25%;
+    --input: 214 20% 25%;
+    --ring: 214 100% 30%;
+    
+    --glass-bg: 214 100% 11% / 0.25;
+    --glass-border: 0 0% 100% / 0.18;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-gradient-to-br from-royal-blue via-primary to-emerald-green text-foreground antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+    font-weight: 600;
+  }
+}
+
+@layer utilities {
+  .glass {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+  }
+  
+  .glass-dark {
+    background: rgba(0, 27, 58, 0.25);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+  }
+  
+  .gradient-text {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .gradient-button {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+    transition: all 0.3s ease;
+  }
+  
+  .gradient-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px -10px hsl(var(--primary) / 0.5);
+  }
+}
