@@ -16,27 +16,44 @@ All colors MUST be HSL.
     --soft-white: 0 0% 100%;
     --neutral-gray: 214 32% 95%;
     
+    
     /* Theme mappings */
     --background: 0 0% 100%;
-    --foreground: 214 100% 11%;
+    /* --foreground: 214 100% 11%; */
+        /* --foreground: 210 50% 10%; */
+            --foreground: 210 50% 10%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 214 100% 11%;
+
+
+    /* --card: 0 0% 100%;
+    --card-foreground: 214 100% 11%; */
+      --card: 0 0% 100%;
+    --card-foreground: 210 50% 10%;
 
     --popover: 0 0% 100%;
     --popover-foreground: 214 100% 11%;
 
-    --primary: 214 100% 30%;
+    /* --primary: 214 100% 30%; */
+        --primary: 215 100% 30%;
+
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 162 100% 33%;
+    /* --secondary: 162 100% 33%;
+    --secondary-foreground: 0 0% 100%; */
+
+    --secondary: 210 100% 11%;
     --secondary-foreground: 0 0% 100%;
 
-    --accent: 182 84% 51%;
-    --accent-foreground: 214 100% 11%;
+    /* --accent: 182 84% 51%;
+    --accent-foreground: 214 100% 11%; */
 
-    --muted: 214 32% 95%;
-    --muted-foreground: 214 20% 40%;
+       --accent: 166 100% 33%;
+    --accent-foreground: 0 0% 100%;
+
+    /* --muted: 214 32% 95%;
+    --muted-foreground: 214 20% 40%; */
+        --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
@@ -48,11 +65,18 @@ All colors MUST be HSL.
     --radius: 1rem;
     
     /* Glassmorphism */
+    /* --glass-bg: 0 0% 100% / 0.25;
+    --glass-border: 0 0% 100% / 0.18; */
+
     --glass-bg: 0 0% 100% / 0.25;
-    --glass-border: 0 0% 100% / 0.18;
+    --glass-border: 0 0% 100% / 0.3;
+
+     --gradient-primary: linear-gradient(135deg, hsl(215 100% 30%) 0%, hsl(181 72% 50%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(215 100% 30%) 0%, hsl(166 100% 33%) 50%, hsl(181 72% 50%) 100%);
+    --gradient-glass: linear-gradient(135deg, hsl(0 0% 100% / 0.1) 0%, hsl(0 0% 100% / 0.05) 100%);
   }
 
-  .dark {
+  /* .dark {
     --background: 214 100% 11%;
     --foreground: 0 0% 100%;
 
@@ -83,6 +107,41 @@ All colors MUST be HSL.
     
     --glass-bg: 214 100% 11% / 0.25;
     --glass-border: 0 0% 100% / 0.18;
+  } */
+   .dark {
+    --background: 210 50% 5%;
+    --foreground: 0 0% 98%;
+
+    --card: 210 50% 8%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 210 50% 8%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 215 100% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --accent: 166 100% 40%;
+    --accent-foreground: 0 0% 100%;
+    
+    --highlight: 181 72% 60%;
+    --highlight-foreground: 210 50% 10%;
+
+    --secondary: 210 100% 15%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 50% 15%;
+    --muted-foreground: 215 20% 65%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 50% 20%;
+    --input: 210 50% 20%;
+    --ring: 215 100% 50%;
+    
+    --glass-bg: 0 0% 100% / 0.05;
+    --glass-border: 0 0% 100% / 0.1;
   }
 }
 
@@ -90,16 +149,17 @@ All colors MUST be HSL.
   * {
     @apply border-border;
   }
+   
 
   body {
-    @apply bg-gradient-to-br from-royal-blue via-primary to-emerald-green text-foreground antialiased;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    @apply bg-gradient-to-br from-royal-blue via-primary to-emerald-green bg-background text-foreground font-sans antialiased;
+    /* font-family: 'Inter', system-ui, -apple-system, sans-serif; */
   }
   
-  h1, h2, h3, h4, h5, h6 {
+  /* h1, h2, h3, h4, h5, h6 {
     font-family: 'Poppins', system-ui, -apple-system, sans-serif;
     font-weight: 600;
-  }
+  } */
 }
 
 @layer utilities {
@@ -132,5 +192,19 @@ All colors MUST be HSL.
   .gradient-button:hover {
     transform: translateY(-2px);
     box-shadow: 0 10px 30px -10px hsl(var(--primary) / 0.5);
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    @apply backdrop-blur-xl bg-white/25 border border-white/30 shadow-xl;
+  }
+  
+  .glass-button {
+    @apply backdrop-blur-sm bg-white/10 hover:bg-white/20 border border-white/30;
+  }
+  
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-highlight;
   }
 }
