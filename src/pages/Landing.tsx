@@ -374,7 +374,7 @@ const Landing = () => {
                   <span className="font-heading font-bold text-2xl text-accent">₦7,500</span>
                 </div>
                 <div className="flex justify-between items-center p-4 bg-primary/10 rounded-lg">
-                  <span className="font-semibold text-lg">Adults/Professionals</span>
+                  <span className="font-semibold text-lg">Professionals</span>
                   <span className="font-heading font-bold text-2xl text-primary">₦10,000</span>
                 </div>
               </div>
